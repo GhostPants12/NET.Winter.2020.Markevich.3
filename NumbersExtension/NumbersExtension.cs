@@ -9,7 +9,7 @@ namespace NumbersExtension
     {
         private const int IntMaxBit = (sizeof(int) * 8) - 1;
         private const int IntMinBit = 0;
-        private const double Epsilon = 1;
+        public const double Epsilon = 1;
 
         /// <summary>Inserts the number into another.</summary>
         /// <param name="numberSource">The number source.</param>
