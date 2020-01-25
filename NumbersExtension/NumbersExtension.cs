@@ -1,12 +1,16 @@
-﻿namespace NumbersExtension
-{
-    using System;
+﻿using System;
 
+namespace NumbersExtension
+{
     /// <summary>
     /// An application entry point.
     /// </summary>
     public static class NumbersExtension
     {
+        private const int IntMaxBit = (sizeof(int) * 8) - 1;
+        private const int IntMinBit = 0;
+        private const double Epsilon = 1;
+
         /// <summary>Inserts the number into another.</summary>
         /// <param name="numberSource">The number source.</param>
         /// <param name="numberIn">The number in.</param>
@@ -23,15 +27,12 @@
         /// <exception cref="ArgumentException">i is higher than j.</exception>
         public static int InsertNumberIntoAnother(int numberSource, int numberIn, int i, int j)
         {
-            const int intMaxBit = 31;
-            const int intMinBit = 0;
-
-            if (i < intMinBit || i > intMaxBit)
+            if (i < IntMinBit || i > IntMaxBit)
             {
                 throw new ArgumentOutOfRangeException(nameof(i), "i is out of range");
             }
 
-            if (j < intMinBit || j > intMaxBit)
+            if (j < IntMinBit || j > IntMaxBit)
             {
                 throw new ArgumentOutOfRangeException(nameof(j), "j is out of range");
             }
@@ -41,12 +42,12 @@
                 throw new ArgumentException("i is higher than j");
             }
 
-            if (i == intMinBit && j == intMaxBit)
+            if (i == IntMinBit && j == IntMaxBit)
             {
                 return numberIn;
             }
 
-            if (j == intMaxBit)
+            if (j == IntMaxBit)
             {
                 numberSource &= int.MaxValue;
             }
@@ -56,11 +57,11 @@
             int insertValue = (numberIn & bitMaskForNumberIn) << i;
             if (numberSource >= 0)
             {
-                bitMaskForNumberSource = (int.MaxValue >> (intMaxBit - i)) | ((int.MaxValue << (j + 1)) & int.MaxValue);
+                bitMaskForNumberSource = (int.MaxValue >> (IntMaxBit - i)) | ((int.MaxValue << (j + 1)) & int.MaxValue);
             }
             else
             {
-                bitMaskForNumberSource = (int.MaxValue >> (intMaxBit - i)) | (((int.MaxValue << (j + 1)) & int.MaxValue) | (int.MaxValue << (intMaxBit - 1)));
+                bitMaskForNumberSource = (int.MaxValue >> (IntMaxBit - i)) | (((int.MaxValue << (j + 1)) & int.MaxValue) | (int.MaxValue << (IntMaxBit - 1)));
             }
 
             int putOutValue = numberSource & bitMaskForNumberSource;
@@ -139,8 +140,6 @@
         /// or accuracy.</exception>
         public static double FindNthRoot(double value, int rootPower, double accuracy)
         {
-            const double Epsilon = 1;
-
             if (rootPower <= 0)
             {
                 throw new ArgumentOutOfRangeException("RootPower is less than zero");
