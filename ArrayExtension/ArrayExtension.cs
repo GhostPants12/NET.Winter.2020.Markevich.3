@@ -1,6 +1,7 @@
 ﻿namespace ArrayExtension
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// An application entry point.
@@ -79,7 +80,7 @@
             }
 
             int buf;
-            int[] outArray = Array.Empty<int>();
+            List<int> outList = new List<int>();
             for (int i = 0; i < arr.Length; i++)
             {
                 buf = arr[i];
@@ -87,8 +88,7 @@
                 {
                     if (Math.Abs(buf % 10) == key)
                     {
-                        Array.Resize(ref outArray, outArray.Length + 1);
-                        outArray[outArray.Length - 1] = arr[i];
+                        outList.Add(arr[i]);
                     }
 
                     buf /= 10;
@@ -96,7 +96,7 @@
                 while (buf != 0);
             }
 
-            return outArray;
+            return outList.ToArray();
         }
 
         /// <summary>Finds the maximum element of an array.</summary>
