@@ -37,12 +37,17 @@ namespace ArrayExtension.Tests
         [TestCase(new[] { 15, 25, 60, 74, 189, int.MinValue, 32}, 2, ExpectedResult = new[] { 25, int.MinValue, 32 })]
         public static int[] FilterArrayBykey_WithAllValidParameters(int[] arr, int key) =>
             FilterArrayByKey(arr, key);
+
+        [Test]
         public static void FilterArrayByKey_WithEmptyArray()=>Assert.Throws<ArgumentException>(() 
             => ArrayExtension.FilterArrayByKey(new int[0], 0));
+        [Test]
         public static void FilterArrayByKey_WithNegativeKey() => Assert.Throws<ArgumentOutOfRangeException>(()
               => ArrayExtension.FilterArrayByKey(new int[] { 1, 2 }, -1));
+        [Test]
         public static void FilterArrayByKey_KeyMoreThan9() => Assert.Throws<ArgumentOutOfRangeException>(()
               => ArrayExtension.FilterArrayByKey(new int[] { 1, 2 }, 100));
+        [Test]
         public static void FilterArrayByKey_WithNullArray() => Assert.Throws<ArgumentNullException>(()
               => ArrayExtension.FilterArrayByKey(null, 0));
         #endregion

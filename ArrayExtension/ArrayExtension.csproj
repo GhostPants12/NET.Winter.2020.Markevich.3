@@ -5,6 +5,10 @@
     <CodeAnalysisRuleSet>..\code-analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="BuildTools.FxCop" Version="1.0.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">

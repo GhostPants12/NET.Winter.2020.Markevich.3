@@ -54,6 +54,13 @@
             return null;
         }
 
+        /// <summary>Filters the array by key.</summary>
+        /// <param name="arr">The array.</param>
+        /// <param name="key">The key.</param>
+        /// <returns>Sorted array.</returns>
+        /// <exception cref="ArgumentNullException">Array is null.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">key - Key is out of range.</exception>
+        /// <exception cref="ArgumentException">Array is empty.</exception>
         public static int[] FilterArrayByKey(int[] arr, int key)
         {
             if (arr == null)
@@ -61,12 +68,12 @@
                 throw new ArgumentNullException("Array is null.");
             }
 
-            if (key < 0 && key > 9)
+            if (key < 0 || key > 9)
             {
                 throw new ArgumentOutOfRangeException(nameof(key), "Key is out of range");
             }
 
-            if (arr == Array.Empty<int>())
+            if (arr.Length == 0)
             {
                 throw new ArgumentException("Array is empty");
             }
