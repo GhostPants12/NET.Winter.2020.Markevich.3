@@ -84,16 +84,10 @@
             for (int i = 0; i < arr.Length; i++)
             {
                 buf = arr[i];
-                do
+                if (Validate(buf, key))
                 {
-                    if (Math.Abs(buf % 10) == key)
-                    {
-                        outList.Add(arr[i]);
-                    }
-
-                    buf /= 10;
+                    outList.Add(buf);
                 }
-                while (buf != 0);
             }
 
             return outList.ToArray();
@@ -132,6 +126,21 @@
 
                 return Math.Max(leftBuff, rightBuff);
             }
+        }
+
+        private static bool Validate(int number, int key)
+        {
+            do
+            {
+                if (Math.Abs(number % 10) == key)
+                {
+                    return true;
+                }
+
+                number /= 10;
+            }
+            while (number != 0);
+            return false;
         }
     }
 }

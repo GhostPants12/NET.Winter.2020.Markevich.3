@@ -50,7 +50,7 @@ namespace ArrayExtension.Tests
         [Test]
         public static void FilterArrayByKey_WithNullArray() => Assert.Throws<ArgumentNullException>(()
               => ArrayExtension.FilterArrayByKey(null, 0));
-        //2 seconds
+        //1 sec
         [Test, Timeout(3000)]
         public static void FilterArrayByKey_WithAllValidParameters_BigArray()
         {
