@@ -30,6 +30,7 @@
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
         /// <returns>The gcd of three numbers.</returns>
+        /// <exception cref="ArgumentException">Throws when all values are zero.</exception>
         public static int GetGcdByEuclidean(int firstNumber, int secondNumber, int thirdNumber)
         {
             if (firstNumber == 0 && secondNumber == 0 && thirdNumber == 0)
@@ -43,8 +44,16 @@
         /// <summary>Gets the GCD by Euclidean method.</summary>
         /// <param name="mas">  The numbers.</param>
         /// <returns>Returns the gcd of the numbers.</returns>
+        /// <exception cref="ArgumentException">Throws when there is only one parameter
+        /// or
+        /// when all arguments are zero.</exception>
         public static int GetGcdByEuclidean(params int[] mas)
         {
+            if (mas.Length == 1)
+            {
+                throw new ArgumentException("There should be more than one parameter");
+            }
+
             int zeroNumbersCounter = 0;
             for (int i = 0; i < mas.Length; i++)
             {
@@ -169,6 +178,7 @@
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
         /// <returns>The gcd of three numbers.</returns>
+        /// <exception cref="ArgumentException">Throws when all arguments are zero.</exception>
         public static int GetGcdByStein(int firstNumber, int secondNumber, int thirdNumber)
         {
             if (firstNumber == 0 && secondNumber == 0 && thirdNumber == 0)
@@ -182,8 +192,16 @@
         /// <summary>Gets the GCD by Stein method.</summary>
         /// <param name="mas">  The numbers.</param>
         /// <returns>Returns the gcd of the numbers.</returns>
+        /// <exception cref="ArgumentException">Throws when there is only one parameter
+        /// or
+        /// when all arguments are zero.</exception>
         public static int GetGcdByStein(params int[] mas)
         {
+            if (mas.Length == 1)
+            {
+                throw new ArgumentException("There should be more than one parameter");
+            }
+
             int zeroNumbersCounter = 0;
             for (int i = 0; i < mas.Length; i++)
             {

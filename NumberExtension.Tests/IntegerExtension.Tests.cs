@@ -36,6 +36,7 @@ namespace IntegerExtension.Tests
             Assert.Throws<ArgumentOutOfRangeException>(() => GetGcdByEuclidean(vs));
 
         [TestCase(0, 0, 0, 0, 0, 0)]
+        [TestCase(2)]
         public void GetGcdByEuclidean_WithAllZeroParameters_ThrowsArgumentException(params int[] vs) =>
             Assert.Throws<ArgumentException>(() => GetGcdByEuclidean(vs));
         #endregion
@@ -70,6 +71,7 @@ namespace IntegerExtension.Tests
             Assert.Throws<ArgumentOutOfRangeException>(() => GetGcdByStein(vs));
 
         [TestCase(0, 0, 0, 0, 0, 0)]
+        [TestCase(1)]
         public void GetGcdByStein_WithAllZeroParameters_ThrowsArgumentException(params int[] vs) =>
             Assert.Throws<ArgumentException>(() => GetGcdByStein(vs));
         #endregion
