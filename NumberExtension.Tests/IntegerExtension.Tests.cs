@@ -80,15 +80,29 @@ namespace IntegerExtension.Tests
         [TestCase(213124, -54654, -123124, 65765, 44444, -7, 1234567, int.MaxValue)]
         public void SteinTicksExists_WithAllValidParameters(params int[] vs)
         {
-            long steinTicks = TicksForStein(vs);
+            long steinTicks = TicksForStein(out int result, vs);
             Assert.AreNotEqual(0, steinTicks);
         }
 
         [TestCase(213124, -54654, -123124, 65765, 44444, -7, 1234567, int.MaxValue)]
         public void EuclideanTicksExists_WithAllValidParameters(params int[] vs)
         {
-            long euclideanTicks = TicksForEuclidean(vs);
+            long euclideanTicks = TicksForEuclidean(out int result, vs);
             Assert.AreNotEqual(0, euclideanTicks);
+        }
+        #endregion
+
+        #region ResultTests
+        [TestCase(1, 1, 213124, -54654, -123124, 65765, 44444, -7, 1234567, int.MaxValue)]
+        [TestCase(1, 0, 0, 1, 0)]
+        [TestCase(1, 123413, 943578, 123413, 943578, 943578, int.MaxValue)]
+        public void SteinAndEuclideanTimetestsResultsAreEqual_WithAllValidParameters(int expectedResult,params int[] vs)
+        {
+            long steinTime = TimeForStein(out int resultSteinTime, vs);
+            long steinTicks = TicksForStein(out int resultSteinTicks, vs);
+            long euclideanTime = TimeForEuclidean(out int resultEuclideanTime, vs);
+            long euclideanTicks = TicksForEuclidean(out int resultEuclideanTicks, vs);
+            Assert.AreEqual(true, expectedResult==resultEuclideanTicks && expectedResult==resultEuclideanTime && expectedResult == resultSteinTicks && expectedResult == resultSteinTime);
         }
         #endregion
 
@@ -97,10 +111,10 @@ namespace IntegerExtension.Tests
         [TestCase(123413, 943578, 123413, 943578, 943578, int.MaxValue)]
         public void SteinIsFaster_WithManyParameters(params int[] vs)
         {
-            long steinTime = TimeForStein(vs);
-            long steinTicks = TicksForStein(vs);
-            long euclideanTime = TimeForEuclidean(vs);
-            long euclideanTicks = TicksForEuclidean(vs);
+            long steinTime = TimeForStein(out int resultSteinTime, vs);
+            long steinTicks = TicksForStein(out int resultSteinTicks, vs);
+            long euclideanTime = TimeForEuclidean(out int resultEuclideanTime, vs);
+            long euclideanTicks = TicksForEuclidean(out int resultEuclideanTicks, vs);
             Assert.AreEqual(true, (steinTime <= euclideanTime && steinTicks < euclideanTicks));
         }
 
@@ -108,10 +122,10 @@ namespace IntegerExtension.Tests
         [TestCase(123413, 943578, 123413, 943578, 943578, int.MaxValue)]
         public void EuclideanIsFaster_WithManyParameters(params int[] vs)
         {
-            long steinTime = TimeForStein(vs);
-            long steinTicks = TicksForStein(vs);
-            long euclideanTime = TimeForEuclidean(vs);
-            long euclideanTicks = TicksForEuclidean(vs);
+            long steinTime = TimeForStein(out int resultSteinTime, vs);
+            long steinTicks = TicksForStein(out int resultSteinTicks, vs);
+            long euclideanTime = TimeForEuclidean(out int resultEuclideanTime, vs);
+            long euclideanTicks = TicksForEuclidean(out int resultEuclideanTicks, vs);
             Assert.AreEqual(true, (euclideanTime <= steinTime && euclideanTicks < steinTicks));
         }
         #endregion

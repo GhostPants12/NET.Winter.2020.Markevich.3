@@ -80,11 +80,12 @@
         /// <summary>Gets the time needed to get the gcd by Euclidean method.</summary>
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Euclidean method.</returns>
-        public static long TimeForEuclidean(int firstNumber, int secondNumber)
+        public static long TimeForEuclidean(int firstNumber, int secondNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(firstNumber, secondNumber);
+            gcd = GetGcdByEuclidean(firstNumber, secondNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
@@ -93,11 +94,12 @@
         /// <summary>Ticks for euclidean method.</summary>
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>The number of ticks needed to get the gcd by Euclidean method.</returns>
-        public static long TicksForEuclidean(int firstNumber, int secondNumber)
+        public static long TicksForEuclidean(int firstNumber, int secondNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(firstNumber, secondNumber);
+            gcd = GetGcdByEuclidean(firstNumber, secondNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
@@ -107,11 +109,12 @@
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Euclidean method.</returns>
-        public static long TimeForEuclidean(int firstNumber, int secondNumber, int thirdNumber)
+        public static long TimeForEuclidean(int firstNumber, int secondNumber, int thirdNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(firstNumber, secondNumber, thirdNumber);
+            gcd = GetGcdByEuclidean(firstNumber, secondNumber, thirdNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
@@ -121,35 +124,38 @@
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>The number of ticks needed to get the gcd by Euclidean method.</returns>
-        public static long TicksForEuclidean(int firstNumber, int secondNumber, int thirdNumber)
+        public static long TicksForEuclidean(int firstNumber, int secondNumber, int thirdNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(firstNumber, secondNumber, thirdNumber);
+            gcd = GetGcdByEuclidean(firstNumber, secondNumber, thirdNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
         }
 
         /// <summary>Gets the time needed to get the gcd by Euclidean method.</summary>
+        /// <param name ="gcd">Result of the method.</param>
         /// <param name="mas">  The numbers.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Euclidean method.</returns>
-        public static long TimeForEuclidean(params int[] mas)
+        public static long TimeForEuclidean(out int gcd, params int[] mas)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(mas);
+            gcd = GetGcdByEuclidean(mas);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
         }
 
         /// <summary>Ticks for euclidean method.</summary>
+        /// <param name ="gcd">Result of the method.</param>
         /// <param name="mas">  The numbers.</param>
         /// <returns>The number of ticks needed to get the gcd by Euclidean method.</returns>
-        public static long TicksForEuclidean(params int[] mas)
+        public static long TicksForEuclidean(out int gcd, params int[] mas)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByEuclidean(mas);
+            gcd = GetGcdByEuclidean(mas);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
@@ -228,11 +234,12 @@
         /// <summary>Gets the time needed to get the gcd by Stein method.</summary>
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Stein method.</returns>
-        public static long TimeForStein(int firstNumber, int secondNumber)
+        public static long TimeForStein(int firstNumber, int secondNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(firstNumber, secondNumber);
+            gcd = GetGcdByStein(firstNumber, secondNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
@@ -241,11 +248,12 @@
         /// <summary>Gets the ticks needed to get the gcd by Stein method.</summary>
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of ticks needed to get the gcd by Stein method.</returns>
-        public static long TicksForStein(int firstNumber, int secondNumber)
+        public static long TicksForStein(int firstNumber, int secondNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(firstNumber, secondNumber);
+            gcd = GetGcdByStein(firstNumber, secondNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
@@ -255,11 +263,12 @@
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Stein method.</returns>
-        public static long TimeForStein(int firstNumber, int secondNumber, int thirdNumber)
+        public static long TimeForStein(int firstNumber, int secondNumber, int thirdNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(firstNumber, secondNumber, thirdNumber);
+            gcd = GetGcdByStein(firstNumber, secondNumber, thirdNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
@@ -269,35 +278,38 @@
         /// <param name="firstNumber">The first number.</param>
         /// <param name="secondNumber">The second number.</param>
         /// <param name="thirdNumber">The third number.</param>
+        /// <param name ="gcd">Result of the method.</param>
         /// <returns>Returns the number of ticks needed to get the gcd by Stein method.</returns>
-        public static long TicksForStein(int firstNumber, int secondNumber, int thirdNumber)
+        public static long TicksForStein(int firstNumber, int secondNumber, int thirdNumber, out int gcd)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(firstNumber, secondNumber, thirdNumber);
+            gcd = GetGcdByStein(firstNumber, secondNumber, thirdNumber);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
         }
 
         /// <summary>Gets the time needed to get the gcd by Stein method.</summary>
+        /// <param name ="gcd">Result of the method.</param>
         /// <param name = "mas" > The numbers.</param>
         /// <returns>Returns the number of milliseconds needed to get the gcd by Stein method.</returns>
-        public static long TimeForStein(params int[] mas)
+        public static long TimeForStein(out int gcd, params int[] mas)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(mas);
+            gcd = GetGcdByStein(mas);
             startTime.Stop();
             long resultTime = startTime.ElapsedMilliseconds;
             return resultTime;
         }
 
         /// <summary>Gets the ticks needed to get the gcd by Stein method.</summary>
+        /// <param name ="gcd">Result of the method.</param>
         /// <param name = "mas" > The numbers.</param>
         /// <returns>Returns the number of ticks needed to get the gcd by Stein method.</returns>
-        public static long TicksForStein(params int[] mas)
+        public static long TicksForStein(out int gcd, params int[] mas)
         {
             var startTime = System.Diagnostics.Stopwatch.StartNew();
-            GetGcdByStein(mas);
+            gcd = GetGcdByStein(mas);
             startTime.Stop();
             long resultTime = startTime.ElapsedTicks;
             return resultTime;
