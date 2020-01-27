@@ -50,11 +50,22 @@ namespace ArrayExtension.Tests
         [Test]
         public static void FilterArrayByKey_WithNullArray() => Assert.Throws<ArgumentNullException>(()
               => ArrayExtension.FilterArrayByKey(null, 0));
-        //1 sec
-        [Test, Timeout(5000)]
+        //669 ms
+        [Test]
         public static void FilterArrayByKey_WithAllValidParameters_BigArray()
         {
-            FilterArrayByKey(Enumerable.Range(1, 100_000_000).ToArray(), 2);
+            int[] arr = new int[100_000_000];
+            for (int i = 0; i < arr.Length; i ++)
+            {
+                arr[i] = 0;
+            }
+            for (int i=0;i<arr.Length;i+=20_000_000)
+            {
+                arr[i] = 8;
+            }
+            int[] result = FilterArrayByKey(arr, 8);
+            int[] expected = { 8, 8, 8, 8, 8 };
+            Assert.AreEqual(expected, result);
         }
 
         #endregion
