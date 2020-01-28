@@ -80,17 +80,20 @@
             }
 
             int buf;
-            List<int> outList = new List<int>();
+            int[] result = new int[arr.Length];
+            int resultIndex=0;
             for (int i = 0; i < arr.Length; i++)
             {
                 buf = arr[i];
                 if (Validate(buf, key))
                 {
-                    outList.Add(buf);
+                    result[resultIndex] = buf;
+                    resultIndex++;
                 }
             }
 
-            return outList.ToArray();
+            Array.Resize(ref result, resultIndex);
+            return result;
         }
 
         /// <summary>Finds the maximum element of an array.</summary>
