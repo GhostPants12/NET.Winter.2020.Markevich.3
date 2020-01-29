@@ -10,6 +10,11 @@ namespace ArrayGeneration
     {
         private const int MaxSize = int.MaxValue / 10;
 
+        /// <summary>Creates the ordered array.</summary>
+        /// <param name="firstValue">The first value.</param>
+        /// <param name="lastValue">The last value.</param>
+        /// <returns>Returns an array containing all numbers between firstValue and lastValue.</returns>
+        /// <exception cref="ArgumentException">lastValue is less than firstValue</exception>
         public static int[] CreateOrderedArray(int firstValue, int lastValue)
         {
             if (lastValue < firstValue)
@@ -20,6 +25,13 @@ namespace ArrayGeneration
             return Enumerable.Range(firstValue, (lastValue - firstValue) + 1).ToArray();
         }
 
+        /// <summary>Creates the ordered array.</summary>
+        /// <param name="firstValue">The first value.</param>
+        /// <param name="lastValue">The last value.</param>
+        /// <param name="step">The step.</param>
+        /// <returns>Returns an array containing all numbers between firstValue and lastValue in increments of step.</returns>
+        /// <exception cref="ArgumentException">lastValue is less than firstValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">step - Step cannot be less or equal to zero.</exception>
         public static int[] CreateOrderedArray(int firstValue, int lastValue, int step)
         {
             if (lastValue < firstValue)
@@ -49,6 +61,10 @@ namespace ArrayGeneration
             return outList.ToArray();
         }
 
+        /// <summary>Creates the random ordered array.</summary>
+        /// <param name="size">The size.</param>
+        /// <returns>Returns increasing array with random numbers.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">size - Size cannot be less or equal to zero or more than MaxSize</exception>
         public static int[] CreateRandomOrderedArray(int size)
         {
             if (size <= 0 || size > MaxSize)
@@ -67,6 +83,11 @@ namespace ArrayGeneration
             return outArray;
         }
 
+        /// <summary>Creates the array with values that contain numbers.</summary>
+        /// <param name="number">The number.</param>
+        /// <param name="size">The size.</param>
+        /// <returns>Returns the array with elements that contain number.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">size - Size cannot be less or equal to zero or more than MaxSize</exception>
         public static int[] CreateArrayWithNumber(int number, int size)
         {
             if (size <= 0 || size > MaxSize)
@@ -83,6 +104,11 @@ namespace ArrayGeneration
             return outArray;
         }
 
+        /// <summary>Mixes the array.</summary>
+        /// <param name="arr">The arr.</param>
+        /// <returns>Returns the mixed array.</returns>
+        /// <exception cref="ArgumentNullException">arr - Array cannot be null</exception>
+        /// <exception cref="ArgumentException">Array should contain at least 2 elements.</exception>
         public static int[] MixArray(int[] arr)
         {
             if (arr == null)
@@ -110,6 +136,12 @@ namespace ArrayGeneration
             return arr;
         }
 
+
+        /// <summary>Mixes the array.</summary>
+        /// <param name="arr">The arr.</param>
+        /// <returns>Returns the mixed array.</returns>
+        /// <exception cref="ArgumentNullException">arr - Array cannot be null</exception>
+        /// <exception cref="ArgumentException">Array should contain at least 2 elements.</exception>
         public static int[] MixArrayByAnotherArray(int[] arr)
         {
             if (arr == null)
@@ -147,6 +179,13 @@ namespace ArrayGeneration
             return arr;
         }
 
+        /// <summary>Mixes the array by random changes.</summary>
+        /// <param name="arr">The array.</param>
+        /// <param name="changes">Number of changes.</param>
+        /// <returns>Returns the mixed array.</returns>
+        /// <exception cref="ArgumentNullException">arr - Array cannot be null</exception>
+        /// <exception cref="ArgumentException">Array should contain at least 2 elements.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">changes - The number of changes should be 1 or more.</exception>
         public static int[] MixArrayByRandomChanges(int[] arr, int changes)
         {
             if (arr == null)

@@ -18,4 +18,8 @@
     <AdditionalFiles Include="..\code-analysis.ruleset" Link="Properties\code-analisys.ruleset" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NumbersExtension\NumbersExtension.csproj" />
+  </ItemGroup>
+
 </Project>

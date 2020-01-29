@@ -54,6 +54,12 @@ namespace ArrayExtension.Tests
             return FilterArrayByKey(arr, key);
         }
 
+        [TestCase(new[] {101, 1551, 82028, 100, 1890, 1570}, ExpectedResult = new[] {101, 1551, 82028})]
+        [TestCase(new[] {100, 200, 300, 400 }, ExpectedResult = new int[] { })]
+        public static int[] FilterArrayByKey_WithAllValidParameters_Palindrome(int[] arr)
+        {
+            return FilterArrayByKey(arr);
+        }
         [Test]
         public static void FilterArrayByKey_WithEmptyArray()=>Assert.Throws<ArgumentException>(() 
             => ArrayExtension.FilterArrayByKey(new int[0], 0));
@@ -66,22 +72,25 @@ namespace ArrayExtension.Tests
         [Test]
         public static void FilterArrayByKey_WithNullArray() => Assert.Throws<ArgumentNullException>(()
               => ArrayExtension.FilterArrayByKey(null, 0));
-        //669 ms
+        //1 sec
         [Test]
         public static void FilterArrayByKey_WithAllValidParameters_BigArray()
         {
             int[] arr = new int[100_000_000];
             for (int i = 0; i < arr.Length; i ++)
             {
-                arr[i] = 0;
+                arr[i] = 10;
             }
             for (int i=0;i<arr.Length;i+=20_000_000)
             {
                 arr[i] = 8;
             }
-            int[] result = FilterArrayByKey(arr, 8);
+
+            int[] result = FilterArrayByKey(arr);
+            int[] resultForKey = FilterArrayByKey(arr, 8);
             int[] expected = { 8, 8, 8, 8, 8 };
             Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected,resultForKey);
         }
 
         //3 sec
